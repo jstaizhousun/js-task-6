@@ -28,7 +28,9 @@ input{
 html,body{
     height: 100%;
 }
-body{
+.background {
+    width: 100%;
+    height: 100%;
     background: url(../img/bg.jpg) no-repeat center;
     background-size: cover;
 }
@@ -45,7 +47,7 @@ body{
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
 }
 
-input{
+.login-user{
     display: block;
     height: 46px;
     width: 286px;
@@ -56,28 +58,27 @@ input{
     color: #fca73a;
     border: 1px solid #cccccc;
     border-radius: 6px;
-}
-input.login-user{
     margin-top: 84px;
     margin-bottom: 15px;
     background: url(../img/loginuser.png) no-repeat 14px 10px;
 }
-input.login-user-active{
-    margin-top: 84px;
-    margin-bottom: 15px;
-    border: 1px solid #fca73a;
-    background: url(../img/loginuser-active.png) no-repeat 14px 10px;
-}
+
 input.login-pwd{
+    display: block;
+    height: 46px;
+    width: 286px;
+    margin: 0 auto;
+    padding-left: 50px;
+    font-size: 18px;
+    line-height: 46px;
+    color: #fca73a;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
     margin-top: 15px;
     margin-bottom: 60px;
     background: url(../img/loginpsd.png) no-repeat 14px 10px;
 }
-input.login-pwd-active{
-    border: 1px solid #fca73a;
-    background: url(../img/loginpsd-active.png) no-repeat 14px 10px;
-}
-.btn {
+.btnlogin {
     height: 48px;
     width: 338px;
     margin: 0 auto 15px;
@@ -133,7 +134,7 @@ input.login-pwd-active{
         width: 80%;
     }
 }
-.btn[disabled] {
+.btnlogin[disabled] {
     height: 48px;
     width: 338px;
     margin: 0 auto 15px;

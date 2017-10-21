@@ -27,6 +27,10 @@ main {
 	line-height: .15rem;
 	margin-right: .2rem;
 }
+.size {
+	font-size: 14px;
+	color: blue;
+}
 caption {
 	color: black;
 	padding-left: .2rem;
@@ -44,9 +48,28 @@ th a {
 	text-decoration: none;
 	cursor: pointer;
 }
+.page{
+	width: 34px;
+	height: 34px;
+}
+.go {
+	height: 34px;
+	padding: 8px 14px;
+	margin-left: -4px;
+	line-height: 1.42857143;
+	color: #337ab7;
+	text-decoration: none;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	cursor: pointer;
+}
 @media screen and (max-width: 768px) {
 	main {
 		width: 100%;
 		overflow: auto;
 	}	
+}
+.currentStep {
+	background-color: blue !important;
+	color: #fff !important;
 }

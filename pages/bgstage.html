@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<title>后台页</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../css/left-nav.css">
-
-</head>
 <body>
-	<div class="nav-left">
+	
+
+	<div class="nav-left" ng-app="myApp" ng-controller="navCtrl">
 		<ul>
 			<span class="title">后台管理系统</span>
 			<li class="nav-title">信息管理<div class="list"></div></li>
@@ -19,7 +11,8 @@
 				</div>
 			<li class="nav-title">Article管理<div class="list"></div></li>
 				<div class="drop-down">
-					<li class="drop-down-menu"><a href="#/u/list" class="a1" ng-click="article()">Article列表</a></li>
+					<li class="drop-down-menu" ui-sref=".articleList({'page':'1','size':'5','type':null ,'status':null,startAt:null,
+             endAt: null})">Article列表</li>
 				</div>
 			<li class="nav-title">推荐管理<div class="list"></div></li>
 				<div class="drop-down">
@@ -43,12 +36,7 @@
 				</div>
 		</ul>
 	</div>
-	<main ng-view>
+<div ui-view>
 	<h1>welcome</h1>
-	</main>
-<script src="../js/houtai.js"></script>
-<script src="../lib/angular.min.js"></script>
-<script src="../lib/angular-route.js"></script>
-<script src="../js/app.js"></script>
+</div>
 </body>
-</html>

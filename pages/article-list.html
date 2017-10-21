@@ -1,58 +1,56 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="myApp">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<title>Article列表页</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-   <link rel="stylesheet" href="../css/left-nav.css">
-	<link rel="stylesheet" href="../css/article-list.css">
-</head>
-<body>
-	<main>
+	<main ui-view>
 		<div class="container-fluid">
-			<form class="form-top">
+			<form class="form-top" ng-controller="searchCtrl">
 				<div class="row row-a1">
 					<div class="col-sm-2 font-style">
 						<span>发布内容</span>
 					</div>
 					<div class="col-sm-2">
-						<input type="text" style="width:100%">
+						<div class="input-group">
+							<input type="text" ng-model="startDate" class="form-control" uib-datepicker-popup="{{format}}"  is-open="popup1.opened" close-text="关闭"
+                       clear-text="清空" current-text="今天">
+                			<span class="input-group-btn">
+                   				 <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+               				 </span>
+						</div>
 					</div>
 					<div class="col-sm-1" style="text-align: center;">
 						<span>-</span>
 					</div>
 					<div class="col-sm-2">
-						<input type="text" style="width:100%">
+						<div class="input-group">
+							<input type="text" ng-model="endDate" class="form-control" uib-datepicker-popup="{{format}}"  is-open="popup2.opened" close-text="关闭"
+                       clear-text="清空" current-text="今天">
+                			<span class="input-group-btn">
+                   				 <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+               				 </span>
+						</div>
 					</div>
 					<div class="col-sm-offset-1 col-sm-2 font-style">
 						<span>类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型</span>
 					</div>
 					<div class="col-sm-2">
-						<select style="width:100%; height:.25rem">
-							<option value="">全部</option>
-							<option value="">1</option>
-							<option value="">2</option>
-							<option value="">3</option>
-							<option value="">4</option>
-						</select>
+					<select style="width:100%; height:.25rem" ng-model="typeSelect" ng-options="x.type as x.name for x in types"></select>
 					</div>		
 				</div>
 				<div class="row row-a1">
-					<div class="col-sm-12 font-style">
+					<div class="col-sm-2 font-style">
 						<span>状&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;态</span>
+					</div>
+					<div class="col-sm-2">
+					<select style="width:100%; height:.25rem" ng-model="statusSelect" ng-options="x.status as x.name for x in status"></select>
 					</div>		
 				</div>
 				<div class="row row-a1">
 					<div class="col-sm-2 col-sm-offset-10 font-style">
-						<button class="btn btn-warning">清空</button>
-						<button class="btn btn-success">搜索</button>
+						<button class="btn btn-warning" ng-click="clear()">清空</button>
+						<button class="btn btn-success" ng-click="search()">搜索</button>
 					</div>		
 				</div>
 			</form>
 			<form class="form-bottom" ng-controller="myFormlists">
 				<table class="table">
-					<caption>Article列表<a class="btn btn-success btn-add" href="#/u/deal">新增</a></caption>
+					<caption>Article列表<a class="btn btn-success btn-add" ui-sref=".articleDeal">新增</a></caption>
   					<thead>
      					<tr>
          					<th>ID</th>
@@ -82,12 +80,18 @@
                      </tr>
    					</tbody>
 				</table>
+				<ul class="pagination pull-right">
+					<li ng-click="firstPage()" style="cursor: pointer;"><span>首页</span></li>
+					<li><span style="cursor: pointer;" ui-sref=".articleList({page:4})" ng-click="golist(x)" ng-repeat="x in pageArray" ng-class="{true:'currentStep'}[x==page]">{{x}}</span></li>
+					<li ng-click="finalPage()" style="cursor: pointer;"><span>末页</span></li>
+					<li><input class="page" ng-model="textPage"></li>
+					<span class="go" ng-click="jump()">跳转</span>	
+				</ul>  
+				<ul class="pagination pull-right" style="line-height: 34px ;margin-right: 14px">
+						<span class="size">每页显示</span>
+						<select ng-model="selectedSize" ng-change="changeSize()" ng-options="value for value in values" style="width: 50px;"></select>
+						<span class="size">条,共{{page}} / {{lastPage}}页</span>
+				</ul>		
 			</form>	
 		</div>
 	</main>
-<script src="../js/houtai.js"></script>
-<script src="../lib/angular.min.js"></script>
-<script src="../lib/angular-route.js"></script>
-<script src="../js/app.js"></script>
-</body>
-</html>

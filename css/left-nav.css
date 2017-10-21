@@ -3,7 +3,7 @@ html {
 	font-size: 625%;
 }
 
-body,ul,li,div,p,span,button{
+body,ul,li,div,p,span,h1,button{
 	margin: 0;
 	padding: 0;
 	text-decoration: none;
@@ -36,7 +36,7 @@ li {
 .nav-left{
 	float: left;
 	width: 2rem;
-	height: 9rem;
+	height: 11rem;
 	border: 1px solid black;
 	background: #232a3a;
 }
@@ -79,10 +79,7 @@ li {
 .drop-down-menu:hover {
 	background-color: #7a7e88 !important;
 }
-@media screen and (max-width: 820px) {
-	.nav-left{
-		height: 11rem;
-}
+
 @media screen and (max-width: 768px) {
 	.nav-left{
 	width: 100%;
@@ -90,5 +87,7 @@ li {
 	border: 1px solid black;
 	background: #232a3a;
 	}	
-
+	main {
+	margin-left: 0rem;
+}
 }

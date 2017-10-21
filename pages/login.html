@@ -1,0 +1,24 @@
+
+<div class="background">
+    <div class="login-box">
+        <div class="img"></div>
+        <form name="myForm" class="form" ng-model="myForm" ng-controller="validateCtrl" novalidate>
+            <input  placeholder="请输入用户名" name="name" class="login-user" ng-model="name" required ng-minlength="5" ng-maxlength="10">
+            <div class="hint" ng-messages="myForm.name.$error" ng-if="myForm.name.$touched">
+                <span ng-message="minlength">用户名最小长度5</span>
+                <span ng-message="maxlength">用户名最大长度10</span>
+                <span ng-message="required">用户名不能为空</span>
+            </div>
+            <input placeholder="请输入密码" type="password" name="pwd" class="login-pwd" ng-model="pwd" required ng-minlength="4" ng-maxlength="12">
+            <div class="hint-pwd" ng-messages="myForm.pwd.$error" ng-if="myForm.pwd.$touched">
+                <span ng-message="minlength">密码长度最小为4</span>
+                <span ng-message="maxlength">密码长度最大为12</span>
+                <span ng-message="required">密码不能为空</span>
+        
+            </div>
+            <div class="hint" id="warm" ng-bind="warm"></div>
+            <button type="button" class="btnlogin" ng-click="put()" ng-disabled="myForm.$invalid" >登录</button>
+        </form>
+    </div>
+</div>
+
